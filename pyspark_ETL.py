@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql import SQLContext
 
 import pymysql
-import mysql.connector
+# import mysql.connector
 
 # create spark session
 scSpark = SparkSession \
@@ -27,16 +27,16 @@ cpid.write.format('jdbc').options(
           driver='com.mysql.jdbc.Driver',
           dbtable='logging',
           user='root',
-          password='Greenwich20@').mode('append').save()
+          password='******').mode('append').save()
 
-# Read from Mysql ##-path  C:\spark\spark-3.0.1-bin-hadoop2.7\bin> spark-submit --jars external/mysql-connector-java-8.0.23.jar /c:/python/pyspark_ETL.py
+# Run the pyspark_ETL.py file with the path  " C:\spark\spark-3.0.1-bin-hadoop2.7\bin> spark-submit --jars external/mysql-connector-java-8.0.23.jar /c:/python/pyspark_ETL.py"
 
 source_df = sqlContext.read.format('jdbc').options(
           url='jdbc:mysql://localhost:3306/spark',
           driver='com.mysql.jdbc.Driver',
           dbtable='logging',
           user='root',
-          password='Greenwich20@').load()
+          password='******').load()
 
 # Preview dataframe
 
